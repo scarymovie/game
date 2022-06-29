@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('pgsql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,12 +65,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('postgres://kngmnlfafmgkcw:634a8dc5cc91e941b4eede70cbbe8136a7ac5e022968eb350bc22061bad6c3e1@ec2-34-246-227-219.eu-west-1.compute.amazonaws.com:5432/ddbghj241tn03e'),
-            'host' => env('ec2-34-246-227-219.eu-west-1.compute.amazonaws.com'),
-            'port' => env('5432'),
-            'database' => env('ddbghj241tn03e'),
-            'username' => env('kngmnlfafmgkcw'),
-            'password' => env('634a8dc5cc91e941b4eede70cbbe8136a7ac5e022968eb350bc22061bad6c3e1'),
+            'url' => env('DATABASE_URL', 'postgres://kngmnlfafmgkcw:634a8dc5cc91e941b4eede70cbbe8136a7ac5e022968eb350bc22061bad6c3e1@ec2-34-246-227-219.eu-west-1.compute.amazonaws.com:5432/ddbghj241tn03e'),
+            'host' => env('DB_HOST', 'ec2-34-246-227-219.eu-west-1.compute.amazonaws.com'),
+            'port' => env('DB_PORT', '5432'),
+            'database' => env('DB_DATABASE', 'ddbghj241tn03e'),
+            'username' => env('DB_USERNAME', 'kngmnlfafmgkcw'),
+            'password' => env('DB_PASSWORD', '634a8dc5cc91e941b4eede70cbbe8136a7ac5e022968eb350bc22061bad6c3e1'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
