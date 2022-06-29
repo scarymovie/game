@@ -18,7 +18,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => rand(1, 500),
+            'category_id' => rand(1, 10),
             'name' => $this->faker->word,
         ];
     }
