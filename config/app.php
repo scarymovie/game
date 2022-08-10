@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => 'super mega game',
+    'name' => env('APP_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'env' => 'local',
+    'env' => env('APP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) true,
+    'debug' => (bool) env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => 'https://super-game.herokuapp.com/',
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'ru',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_EN',
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,8 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'base64:PgnKjaPlLjSpwyoqvIdeDBvTaVihF894ssWqUwq2cKo=base64:Air1ETq79U8ZcGZl6sYyx3WiOWNblg9sYiu/r+3ckVc='),
-
+    'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
 

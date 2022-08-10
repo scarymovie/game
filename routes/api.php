@@ -24,8 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function (){
     Route::resource('teams', TeamController::class);
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/questions/{category}', [QuestionController::class, 'show'])->name('questions.show');
 });
