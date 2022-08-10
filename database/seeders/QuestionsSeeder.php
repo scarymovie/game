@@ -1,0 +1,123 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class QuestionsSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $words = [
+            ['category_id' => '3', 'name' => 'Арбуз'],
+            ['category_id' => '3', 'name' => 'Яблоко'],
+            ['category_id' => '3', 'name' => 'Дыня'],
+            ['category_id' => '3', 'name' => 'Груша'],
+            ['category_id' => '3', 'name' => 'Слива'],
+            ['category_id' => '3', 'name' => 'Малина'],
+            ['category_id' => '3', 'name' => 'Собака'],
+            ['category_id' => '3', 'name' => 'Кошка'],
+            ['category_id' => '3', 'name' => 'Машина'],
+            ['category_id' => '3', 'name' => 'Квартира'],
+            ['category_id' => '3', 'name' => 'Полет'],
+            ['category_id' => '3', 'name' => 'Вертолет'],
+            ['category_id' => '3', 'name' => 'Стол'],
+            ['category_id' => '3', 'name' => 'Стул'],
+            ['category_id' => '3', 'name' => 'Вишня'],
+            ['category_id' => '3', 'name' => 'Череп'],
+            ['category_id' => '3', 'name' => 'Бебра'],
+            ['category_id' => '3', 'name' => 'Додик'],
+            ['category_id' => '3', 'name' => 'Приора'],
+            ['category_id' => '3', 'name' => 'Кемпинг'],
+            ['category_id' => '3', 'name' => 'Сестры'],
+            ['category_id' => '3', 'name' => 'Мочалка'],
+            ['category_id' => '3', 'name' => 'Калина 🥰'],
+            ['category_id' => '3', 'name' => 'Утюг'],
+            ['category_id' => '3', 'name' => 'Барак'],
+            ['category_id' => '3', 'name' => 'Чучмек'],
+            ['category_id' => '3', 'name' => 'Linkin park'],
+            ['category_id' => '3', 'name' => 'Мусорные мишли'],
+            ['category_id' => '3', 'name' => 'Миша маваши'],
+            ['category_id' => '3', 'name' => 'Виталя(кабан) 🐷'],
+            ['category_id' => '3', 'name' => 'Prada'],
+            ['category_id' => '3', 'name' => 'Abibas'],
+            ['category_id' => '3', 'name' => 'Nice (бренд)'],
+            ['category_id' => '3', 'name' => 'Рукоблуд'],
+            ['category_id' => '3', 'name' => 'Ссанина'],
+            ['category_id' => '3', 'name' => 'Помойка'],
+            ['category_id' => '3', 'name' => 'Стрипушник'],
+            ['category_id' => '3', 'name' => 'Квиз'],
+            ['category_id' => '3', 'name' => 'Садоводческое товарищество'],
+            ['category_id' => '3', 'name' => 'Табанить'],
+            ['category_id' => '3', 'name' => 'Тапок(мобила)'],
+            ['category_id' => '3', 'name' => 'Пропеллер(у Пирогова)'],
+            ['category_id' => '3', 'name' => 'Кредит'],
+            ['category_id' => '3', 'name' => 'Диплом(залупа)'],
+            ['category_id' => '3', 'name' => 'Нияз'],
+            ['category_id' => '3', 'name' => 'Шалаев'],
+            ['category_id' => '3', 'name' => 'Суета'],
+            ['category_id' => '3', 'name' => 'Биба'],
+            ['category_id' => '3', 'name' => 'Таджики'],
+            ['category_id' => '3', 'name' => 'Лесник'],
+            ['category_id' => '3', 'name' => 'Соц работник'],
+            ['category_id' => '3', 'name' => 'Хасбик'],
+            ['category_id' => '3', 'name' => 'Абдрозик'],
+            ['category_id' => '3', 'name' => 'Терминатор'],
+            ['category_id' => '3', 'name' => 'Человек паук'],
+            ['category_id' => '3', 'name' => 'Гашик'],
+            ['category_id' => '3', 'name' => 'Моргенштерн'],
+            ['category_id' => '3', 'name' => 'Абу бандит'],
+            ['category_id' => '3', 'name' => 'Контейнер'],
+            ['category_id' => '3', 'name' => 'Ксанакс'],
+            ['category_id' => '3', 'name' => 'Дуло'],
+            ['category_id' => '3', 'name' => 'Мох'],
+            ['category_id' => '3', 'name' => 'Барановичи'],
+            ['category_id' => '3', 'name' => '30 летняя'],
+            ['category_id' => '3', 'name' => 'Русский медведь'],
+            ['category_id' => '3', 'name' => 'Плов'],
+            ['category_id' => '3', 'name' => 'Дудка'],
+            ['category_id' => '3', 'name' => 'Балон'],
+            ['category_id' => '3', 'name' => 'Пиво рыба раки'],
+            ['category_id' => '3', 'name' => 'Двойное яблоко'],
+            ['category_id' => '3', 'name' => 'Нигер'],
+            ['category_id' => '3', 'name' => 'Dark chocolate(негр)'],
+            ['category_id' => '3', 'name' => 'Ра-си-я'],
+            ['category_id' => '3', 'name' => 'Секс за 10 миллионов'],
+            ['category_id' => '3', 'name' => 'Пузожитель'],
+            ['category_id' => '3', 'name' => 'Стадион Динамо'],
+            ['category_id' => '3', 'name' => 'Семчик'],
+            ['category_id' => '3', 'name' => 'Cock-cola'],
+            ['category_id' => '3', 'name' => 'Mountain Dew'],
+            ['category_id' => '3', 'name' => 'Бадибанга'],
+            ['category_id' => '3', 'name' => 'Черный бриллиант'],
+            ['category_id' => '3', 'name' => 'Евгеша'],
+            ['category_id' => '3', 'name' => 'НЛка'],
+            ['category_id' => '3', 'name' => 'Карнавал'],
+            ['category_id' => '3', 'name' => 'Open air'],
+            ['category_id' => '3', 'name' => 'Шрекс'],
+            ['category_id' => '3', 'name' => 'Бюро пропусков'],
+            ['category_id' => '3', 'name' => 'Дагесранчик'],
+            ['category_id' => '3', 'name' => 'Ювелир'],
+            ['category_id' => '3', 'name' => 'Соска'],
+            ['category_id' => '3', 'name' => 'Альбина сексова'],
+            ['category_id' => '3', 'name' => 'Шаурма'],
+            ['category_id' => '3', 'name' => 'Голосование'],
+            ['category_id' => '3', 'name' => 'Cифилис'],
+            ['category_id' => '3', 'name' => 'Кринге'],
+            ['category_id' => '3', 'name' => 'Пенис'],
+            ['category_id' => '3', 'name' => 'Пепка'],
+            ['category_id' => '3', 'name' => 'Обосрыш'],
+            ['category_id' => '3', 'name' => 'Пупсик'],
+            ['category_id' => '3', 'name' => 'Всратыш'],
+        ];
+        foreach ($words as $word) {
+            \DB::table('questions')->insert([$word]);
+        }
+    }
+}
