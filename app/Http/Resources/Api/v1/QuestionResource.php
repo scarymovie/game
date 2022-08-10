@@ -14,9 +14,19 @@ class QuestionResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $rules = [
             'id' => $this->id,
             'name' => $this->name,
         ];
+
+        if (!empty( $this->user->name)){
+            $rules = [
+                'id' => $this->id,
+                'name' => $this->name,
+                'username' => $this->user->name,
+            ];
+        }
+
+        return $rules;
     }
 }
