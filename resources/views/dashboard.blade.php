@@ -5,11 +5,21 @@
         </h2>
     </x-slot>
 
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="color: red">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('questions.store') }}" method="post">
                         @csrf
                         <div>
@@ -34,7 +44,7 @@
             </div>
         </div>
     </div>
-@if(!empty(Auth::user()->question->first()))
+@if($user->question->first())
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

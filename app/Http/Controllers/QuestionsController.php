@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuestionsRequest;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class QuestionsController extends Controller
 {
@@ -22,14 +24,17 @@ class QuestionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\QuestionsRequest $questionsRequest
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(QuestionsRequest $questionsRequest)
     {
+        $validated = $questionsRequest->validated();
+
         $question = Question::create([
-            'name' => $request->name,
-            'category_id' => $request->category_id,
+            'name' => Str::ucfirst($validated['name']),
+            'category_id' => $validated['category_id'],
             'user_id' => Auth::id()
         ]);
         return redirect()->back();

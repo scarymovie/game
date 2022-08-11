@@ -3,6 +3,7 @@
 use App\Http\Controllers\QuestionsController;
 use App\Models\Category;
 use App\Models\Question;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +25,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $questions = Question::where('user_id', Auth::id())->get();
     $categories = Category::all();
-    return  view('dashboard', compact('questions', 'categories'));
+    $user = User::where('id', Auth::id())->with('question')->first();
+    return  view('dashboard', compact('questions', 'categories', 'user'));
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('questions', QuestionsController::class);
