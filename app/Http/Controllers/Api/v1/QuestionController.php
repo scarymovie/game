@@ -12,7 +12,7 @@ class QuestionController extends Controller
     public function show(Category $category)
     {
         $questions = Question::where('category_id', $category->id)
-            ->limit(2000)
+            ->inRandomOrder()
             ->get();
         return response()->json(QuestionResource::collection($questions));
     }
