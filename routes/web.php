@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $questions = Question::where('user_id', Auth::id())->get();
+    $questions = Question::where('user_id', Auth::id())->orderByDesc('id')->get();
     $categories = Category::all();
     $user = User::where('id', Auth::id())->with('question')->first();
     return  view('dashboard', compact('questions', 'categories', 'user'));
