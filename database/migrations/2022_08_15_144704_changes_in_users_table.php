@@ -29,11 +29,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-//            $table->dropColumn('name');
-//            $table->dropColumn('phone');
-            $table->string('name')->after('id')->unique()->nullable();
-            $table->integer('phone')->after('name')->unique()->nullable();
-//            $table->dropColumn('phone');
+            //
         });
     }
 };
