@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Api\v1\AuthController;
+use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\Api\v1\CategoryController;
 use App\Http\Controllers\Api\v1\QuestionController;
 use App\Http\Controllers\Api\v1\TeamController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +28,14 @@ Route::prefix('v1')->group(function (){
     Route::resource('teams', TeamController::class);
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/questions/{category}', [QuestionController::class, 'show'])->name('questions.show');
+
+
 });
 
+Route::post('/login', [AuthController::class, 'login'])
+    ->middleware('guest')
+    ->name('api.login');
+
+//Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+//    ->middleware('auth')
+//    ->name('api.logout');
