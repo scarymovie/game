@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return response()->noContent();
+        return response()->json(['response' => 'stas pidoras, auth -> success'])->setStatusCode(Response::HTTP_OK);
     }
 
     /**
