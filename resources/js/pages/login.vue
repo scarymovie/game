@@ -1,7 +1,6 @@
 <template>
     <div>
-        <form>
-            {{ form }}
+        <form @submit.prevent="login">
             <input type="text" id="phone" v-model="form.phone">
             <button type="submit">Войти</button>
         </form>
@@ -19,7 +18,16 @@ export default {
             phone: '',
         });
 
-        return {form}
+        const login = async () => {
+            await axios.post('/api/login', form).then(res=>{
+                console.log(res);
+            })
+        }
+
+        return {
+            form,
+            login
+        }
 
     }
 }
