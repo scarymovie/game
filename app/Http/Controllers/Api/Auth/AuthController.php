@@ -21,7 +21,7 @@ class AuthController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      * @throws \Exception
      */
-    public function login(LoginRequest $request): Response
+    public function login(LoginRequest $request)
     {
         $request->authenticate();
 
