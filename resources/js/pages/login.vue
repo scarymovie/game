@@ -18,10 +18,19 @@ export default {
             phone: '',
         });
 
+        function getCsrf(){
+            return axios.get('sanctum/csrf-cookie');
+        }
+
+        function sendData(){
+            return axios.post('/api/login', form)
+        }
+
         const login = async () => {
-            await axios.post('/api/login', form).then(res=>{
-                console.log(res);
-            })
+            axios.all([getCsrf(), sendData()])
+                .then(res=>{
+                        console.log(res);
+                })
         }
 
         return {
