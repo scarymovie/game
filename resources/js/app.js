@@ -1,7 +1,15 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
+import { createApp } from "vue";
 
-window.Alpine = Alpine;
+import app from './layouts/LayoutGuest.vue'
 
-Alpine.start();
+createApp(app).mount("#app")
+
+// default from breeze
+//
+// import Alpine from 'alpinejs';
+//
+// window.Alpine = Alpine;
+//
+// Alpine.start();

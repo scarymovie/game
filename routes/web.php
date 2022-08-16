@@ -31,4 +31,4 @@ Route::get('/dashboard', function () {
 
 Route::resource('questions', QuestionsController::class);
 
-require __DIR__.'/auth.php';
+//require __DIR__.'/auth.php';
