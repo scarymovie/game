@@ -48,7 +48,7 @@ class LoginRequest extends FormRequest
         $user = User::where('phone', $this->only('phone'))->first();
 
         if (! Auth::loginUsingId($user->id, true)){
-
+//            $user->createToken('login')->plainTextToken;
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

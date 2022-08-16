@@ -18,17 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{any}', function () {
     return view('welcome');
-});
+})->where('any','.*');
 
-Route::get('/dashboard', function () {
-    $questions = Question::where('user_id', Auth::id())->orderByDesc('id')->get();
-    $categories = Category::all();
-    $user = User::where('id', Auth::id())->with('question')->first();
-    return  view('dashboard', compact('questions', 'categories', 'user'));
-})->middleware(['auth'])->name('dashboard');
-
-Route::resource('questions', QuestionsController::class);
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Route::get('/dashboard', function () {
+//    $questions = Question::where('user_id', Auth::id())->orderByDesc('id')->get();
+//    $categories = Category::all();
+//    $user = User::where('id', Auth::id())->with('question')->first();
+//    return  view('dashboard', compact('questions', 'categories', 'user'));
+//})->middleware(['auth'])->name('dashboard');
+//
+//Route::resource('questions', QuestionsController::class);
 
 //require __DIR__.'/auth.php';

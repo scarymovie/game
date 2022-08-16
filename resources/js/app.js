@@ -2,9 +2,16 @@ import './bootstrap';
 
 import { createApp } from "vue";
 
-import app from './layouts/LayoutGuest.vue'
+import App from './layouts/App.vue'
+import router from "./router";
 
-createApp(app).mount("#app")
+createApp(App)
+    .use(router)
+    .mount("#app")
+
+// import app from './layouts/layoutguest.vue'
+//
+// createApp(app).mount("#app")
 
 // default from breeze
 //
