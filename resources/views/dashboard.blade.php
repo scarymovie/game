@@ -1,71 +1,21 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger" style="color: red">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <form action="{{ route('questions.store') }}" method="post">
-                        @csrf
-                        <div>
-                            <x-label for="name"/>Название
-
-                            <x-input id="name" class="block mt-1 w-full" type="text" name="name" required autofocus/>
-                            <x-label for="category"/>Категория
-
-                            <select name="category_id" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="flex items-center justify-end mt-4">
-                            <x-button class="ml-4">
-                                {{ __('Создать') }}
-                            </x-button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-@if($user->question->first())
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <table>
-                        <thead>
-                            <th>id</th>
-                            <th>Название</th>
-                            <th>Категория</th>
-                        </thead>
-                        @foreach($questions as $question)
-                        <tbody>
-                            <td>{{ $question->id }}</td>
-                            <td>{{ $question->name }}</td>
-                            <td>{{ $question->category->name }}</td>
-                        </tbody>
-                        @endforeach
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endif
-</x-app-layout>
+    <!-- Scripts -->
+                        @vite('resources/css/app.css')
+                        @vite('resources/js/app.js')
+</head>
+<body class="font-sans antialiased" id="app">
+</body>
+</html>

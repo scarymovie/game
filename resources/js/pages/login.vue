@@ -1,11 +1,11 @@
 <template>
-    <div class="relative flex flex-col justify-center min-h-screen overflow-hidden">
-        <div class="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 ring-purple-800/50 lg:max-w-md">
+    <div class="overflow-hidden overflow-x-auto p-6 bg-white border-gray-200">
+        <div class="align-middle content-center">
             <h1 class="text-3xl font-semibold text-center text-purple-700">Войти</h1>
 
             <form @submit.prevent="login" class="mt-6">
                 <div>
-                    <label for="phone" class="block text-sm text-gray-800">Номер телефона</label>
+                    <label for="phone" class="block text-sm text-gray-800 content-center">Номер телефона</label>
                     <input type="text" id="phone" v-model="form.phone" v-maska="'+7 (###) ### ####'"
                            class='w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'>
                 </div>
@@ -23,8 +23,6 @@
             </form>
         </div>
     </div>
-
-
 </template>
 
 <script>

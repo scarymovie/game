@@ -17,12 +17,14 @@ class QuestionResource extends JsonResource
         $rules = [
             'id' => $this->id,
             'name' => $this->name,
+            'category' => $this->category->name
         ];
 
         if (!empty( $this->user->name)){
             $rules = [
                 'id' => $this->id,
                 'name' => $this->name,
+                'category' => $this->category->name,
                 'username' => $this->user->name,
             ];
         }

@@ -28,7 +28,7 @@ Route::prefix('v1')->group(function (){
     Route::resource('teams', TeamController::class);
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/questions/{category}', [QuestionController::class, 'show'])->name('questions.show');
-
+    Route::get('/questions', [QuestionController::class, 'getUserQuestions']);
 
 });
 

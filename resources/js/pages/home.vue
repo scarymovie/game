@@ -2,6 +2,8 @@
     <div>
         Home page
     </div>
+
+    <questions></questions>
 </template>
 
 <script>

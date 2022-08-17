@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-    </head>
-    <body class="antialiased">
-        <div id="app">
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        </div>
-        @vite('resources/css/app.css')
-        @vite('resources/js/app.js')
+</head>
+<body class="antialiased">
 
-{{--        <script src="{{ asset('js/app.js') }}"></script>--}}
-    </body>
+{{--    <div id="app">--}}
+
+{{--    </div>--}}
+
+
+{{--    @vite('resources/css/app.css')--}}
+{{--    @vite('resources/js/app.js')--}}
+
+{{--    <script src="{{ asset('js/app.js') }}"></script>--}}
+</body>
 </html>

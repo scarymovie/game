@@ -30,7 +30,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => ['required', 'numeric', 'digits:10'],
+            'phone' => ['required'],
         ];
     }
 
