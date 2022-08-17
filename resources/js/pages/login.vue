@@ -1,16 +1,41 @@
 <template>
-    <div>
-        <form @submit.prevent="login">
-            <input type="text" id="phone" v-model="form.phone">
-            <button type="submit">Войти</button>
-        </form>
+
+
+    <div class="relative flex flex-col justify-center min-h-screen overflow-hidden">
+        <div class="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 ring-purple-800/50 lg:max-w-md">
+            <h1 class="text-3xl font-semibold text-center text-purple-700">Войти</h1>
+
+            <form @submit.prevent="login" class="mt-6">
+                <div>
+                    <label for="phone" class="block text-sm text-gray-800">Номер телефона</label>
+                    <input type="text" id="phone" v-model="form.phone" v-maska="'+7 (###) ### ####'"
+                           class='w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'>
+                </div>
+                <div class="mt-4">
+                    <div class="mt-6">
+                        <button type="submit"
+                                class='inline-flex items-right px-4 py-2 bg-gray-800
+                                 border border-transparent rounded-md font-semibold text-xs text-white uppercase
+                                  tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring
+                                   ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'
+                        >Войти
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+
+
 </template>
 
 <script>
-import {reactive} from "vue";
+import { reactive } from "vue";
+import { maska } from 'maska'
+
 
 export default {
+    directives: { maska },
     name: "Login",
     setup(){
 
@@ -42,6 +67,3 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>

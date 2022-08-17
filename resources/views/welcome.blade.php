@@ -14,7 +14,7 @@
         <div id="app">
 
         </div>
-
+        @vite('resources/css/app.css')
         @vite('resources/js/app.js')
 
 {{--        <script src="{{ asset('js/app.js') }}"></script>--}}
