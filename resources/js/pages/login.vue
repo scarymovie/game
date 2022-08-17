@@ -1,6 +1,4 @@
 <template>
-
-
     <div class="relative flex flex-col justify-center min-h-screen overflow-hidden">
         <div class="w-full p-6 m-auto bg-white rounded shadow-lg ring-2 ring-purple-800/50 lg:max-w-md">
             <h1 class="text-3xl font-semibold text-center text-purple-700">Войти</h1>
