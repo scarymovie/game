@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default function useQuestions() {
@@ -6,6 +6,7 @@ export default function useQuestions() {
     const router = useRouter()
     const validationErrors = ref({})
     const isLoading = ref(false)
+    const swal = inject('$swal')
 
     const getQuestions = async (page=1) => {
     axios.get('/api/v1/questions?page=' + page)
@@ -22,6 +23,12 @@ export default function useQuestions() {
         validationErrors.value = {}
 
         axios.post('/api/v1/questions', question)
+            .then(response => {
+                swal({
+                    icon: 'success',
+                    title: 'Post saved successfully'
+                })
+            })
             .catch(error => {
                 if (error.response?.data) {
                     validationErrors.value = error.response.data.errors
