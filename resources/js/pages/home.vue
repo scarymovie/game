@@ -1,9 +1,6 @@
 <template>
-    <div>
-        Home page
-    </div>
-
     <questions></questions>
+    <questions-create></questions-create>
 </template>
 
 <script>

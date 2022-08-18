@@ -18,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('/{any}', function ($any) {
-    return view('dashboard');
-})->where('any', '.*')->name('dashboard');
+Route::view('/{any?}', 'dashboard')
+    ->name('dashboard')
+    ->where('any', '.*');
+
+//Route::any('/{any}', function ($any = null) {
+//    return view('dashboard');
+//})->where('any', '.*')->name('dashboard');
 
 //Route::get('/', function () {
 //    return view('welcome');

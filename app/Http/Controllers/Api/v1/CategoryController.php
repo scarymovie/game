@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $limit = $request->limit;
-        $categories = Category::query()->inRandomOrder()->limit($limit)->get();
+        $categories = Category::query()->limit($limit)->get();
         return response()->json(CategoryResource::collection($categories));
     }
 }
