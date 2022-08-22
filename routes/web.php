@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\QuestionsController;
 use App\Models\Category;
 use App\Models\Question;
@@ -18,17 +19,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/{any?}', 'dashboard')
+    ->name('dashboard')
+    ->where('any', '.*');
 
-Route::get('/dashboard', function () {
-    $questions = Question::where('user_id', Auth::id())->orderByDesc('id')->get();
-    $categories = Category::all();
-    $user = User::where('id', Auth::id())->with('question')->first();
-    return  view('dashboard', compact('questions', 'categories', 'user'));
-})->middleware(['auth'])->name('dashboard');
+//Route::post('login', [AuthController::class, 'login']);
 
-Route::resource('questions', QuestionsController::class);
+//Route::any('/{any}', function ($any = null) {
+//    return view('dashboard');
+//})->where('any', '.*')->name('dashboard');
 
-require __DIR__.'/auth.php';
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//Route::get('/dashboard', function () {
+//    $questions = Question::where('user_id', Auth::id())->orderByDesc('id')->get();
+//    $categories = Category::all();
+//    $user = User::where('id', Auth::id())->with('question')->first();
+//    return  view('dashboard', compact('questions', 'categories', 'user'));
+//})->middleware(['auth'])->name('dashboard');
+//
+//Route::resource('questions', QuestionsController::class);
+
+//require __DIR__.'/auth.php';

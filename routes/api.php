@@ -25,14 +25,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function (){
-    Route::resource('teams', TeamController::class);
+    Route::apiResource('teams', TeamController::class);
     Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('/questions/{category}', [QuestionController::class, 'show'])->name('questions.show');
-
-
+//    Route::get('/questions/{category}', [QuestionController::class, 'show'])->name('questions.show');
+//    Route::get('/questions', [QuestionController::class, 'getUserQuestions']);
+    Route::apiResource('/questions', QuestionController::class);
+    //TODO:: add endpoint for all questions. now only for user_id = 13
 });
 
-Route::post('/login', [AuthController::class, 'login'])
+Route::post('login', [AuthController::class, 'login'])
     ->middleware('guest')
     ->name('api.login');
 

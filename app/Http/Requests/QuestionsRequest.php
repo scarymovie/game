@@ -25,8 +25,13 @@ class QuestionsRequest extends FormRequest
     {
         return [
             'name' => 'string|unique:questions',
-            'category_id' => 'integer|min:1',
-            'user_id' => 'integer|min:1'
+            'category_id' => ['required', 'exists:categories,id'],
+//            'user_id' => 'integer|min:1'
         ];
+    }
+
+    public function attributes()
+    {
+        return ['category_id' => 'category'];
     }
 }

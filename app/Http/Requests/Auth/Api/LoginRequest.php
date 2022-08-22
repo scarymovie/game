@@ -30,7 +30,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => ['required', 'string'],
+            'phone' => ['required'],
         ];
     }
 
@@ -44,11 +44,11 @@ class LoginRequest extends FormRequest
     public function authenticate()
     {
         $this->ensureIsNotRateLimited();
-
-        $user = User::where('phone', $this->only('phone'))->first();
+        $phone = $this->only('phone');
+        $user = User::firstOrCreate($phone);
 
         if (! Auth::loginUsingId($user->id, true)){
-
+//            $user->createToken('login')->plainTextToken;
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

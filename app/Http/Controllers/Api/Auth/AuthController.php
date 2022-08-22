@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\Api\LoginRequest;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -17,17 +18,19 @@ class AuthController extends Controller
      *
      * @param \App\Http\Requests\Auth\Api\LoginRequest $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      * @throws \Exception
      */
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request): JsonResponse
     {
         $request->authenticate();
 
-        $request->session()->regenerate();
+        if ($request->wantsJson()) {
+            return response()->json($request->user());
+        }
 
-        return response()->json(['response' => 'stas pidoras, auth -> success'])->setStatusCode(Response::HTTP_OK);
+        return response()->json(Auth::user())->setStatusCode(Response::HTTP_OK);
     }
 
     /**
