@@ -29,7 +29,7 @@ class QuestionController extends Controller
 //        dd(Auth::id());
 //        $user_id = 13;
 
-        $questions = Question::where('user_id', $user_id)->with('category')->orderByDesc()->paginate(10);
+        $questions = Question::where('user_id', 13)->with('category')->orderByDesc('id')->paginate(10);
         return response()->json($questions)->setStatusCode(Response::HTTP_OK);
     }
 
@@ -49,8 +49,7 @@ class QuestionController extends Controller
         $question = Question::create([
             'name' => Str::ucfirst($validated['name']),
             'category_id' => $validated['category_id'],
-            'user_id' => 13
-//            'user_id' => Auth::id()
+            'user_id' => Auth::id()
         ]);
         return response()->json(new QuestionResource($question));
     }
