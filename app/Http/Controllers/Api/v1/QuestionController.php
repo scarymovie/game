@@ -25,8 +25,8 @@ class QuestionController extends Controller
 
     public function index(): JsonResponse
     {
-//        $user_id = Auth::id();
-        $user_id = 13;
+        $user_id = Auth::id();
+//        $user_id = 13;
 
         $questions = Question::where('user_id', $user_id)->with('category')->paginate(10);
         return response()->json($questions)->setStatusCode(Response::HTTP_OK);
