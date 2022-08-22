@@ -16,6 +16,8 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@casl/ability": "^6.0.0",
+        "@casl/vue": "^2.1.3",
         "@vitejs/plugin-vue": "^3.0.3",
         "laravel-vue-pagination": "^3.0.0",
         "maska": "^1.5.0",

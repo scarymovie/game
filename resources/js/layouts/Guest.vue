@@ -5,17 +5,14 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-<!--                            <router-link :to="{ name: 'Home' }"-->
+<!--                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">-->
+<!--                            <router-link :to="{ name: 'Questions' }"-->
 <!--                                         active-class="border-b-2 border-indigo-400"-->
 <!--                                         class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-900-->
 <!--                                          focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">-->
-<!--                                Главная</router-link> |-->
-                            <router-link :to="{ name: 'Questions' }"
-                                         active-class="border-b-2 border-indigo-400"
-                                         class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-900
-                                          focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
-                                Главная</router-link>
+<!--                                Главная</router-link>-->
+<!--                        </div>-->
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <router-link :to="{ name: 'Login' }" active-class="border-b-2 border-indigo-400"
                                          class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-gray-900
                                           focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out">
@@ -26,14 +23,14 @@
             </div>
         </nav>
 
-        <!-- Page Heading -->
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ currentPageTitle }}
-                </h2>
-            </div>
-        </header>
+<!--        &lt;!&ndash; Page Heading &ndash;&gt;-->
+<!--        <header class="bg-white shadow">-->
+<!--            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">-->
+<!--                <h2 class="font-semibold text-xl text-gray-800 leading-tight">-->
+<!--                    {{ currentPageTitle }}-->
+<!--                </h2>-->
+<!--            </div>-->
+<!--        </header>-->
 
         <!-- Page Content -->
         <main>
@@ -50,13 +47,3 @@
 
     </div>
 </template>
-
-<script>
-export default {
-    computed: {
-        currentPageTitle() {
-            return this.$route.meta.title;
-        }
-    }
-}
-</script>

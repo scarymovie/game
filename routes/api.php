@@ -33,7 +33,7 @@ Route::prefix('v1')->group(function (){
     //TODO:: add endpoint for all questions. now only for user_id = 13
 });
 
-Route::post('/login', [AuthController::class, 'login'])
+Route::post('login', [AuthController::class, 'login'])
     ->middleware('guest')
     ->name('api.login');
 

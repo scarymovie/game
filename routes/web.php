@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Auth\AuthController;
 use App\Http\Controllers\QuestionsController;
 use App\Models\Category;
 use App\Models\Question;
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::view('/{any?}', 'dashboard')
     ->name('dashboard')
     ->where('any', '.*');
+
+//Route::post('login', [AuthController::class, 'login']);
 
 //Route::any('/{any}', function ($any = null) {
 //    return view('dashboard');

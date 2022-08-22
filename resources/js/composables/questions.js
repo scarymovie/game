@@ -25,8 +25,8 @@ export default function useQuestions() {
         axios.post('/api/v1/questions', question)
             .then(response => {
                 swal({
-                    icon: 'success',
-                    title: 'Post saved successfully'
+                    icon: 'Успешно',
+                    title: 'Слово успешно сохранено'
                 })
             })
             .catch(error => {
