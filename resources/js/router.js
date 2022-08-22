@@ -8,15 +8,29 @@ function auth(to, from, next) {
     if (JSON.parse(localStorage.getItem('loggedIn'))) {
         next()
     }
-
-    next('/login')
+        next('/login')
 }
 
 const routes = [
     {
-        path: '',
+        path: '/',
+        redirect: {name:'Questions'},
+        component: AuthenticatedLayout ,
+        beforeEnter: auth,
+        children:
+            [
+                {
+                    path: '',
+                    name: 'Questions',
+                    component: Questions,
+                },
+            ]
+    },
+    {
+        path: '/login',
         component: GuestLayout,
         redirect: {name:'Login'},
+        meta: { requiresGuest: true },
         children:
             [
                 {
@@ -27,18 +41,7 @@ const routes = [
                 },
             ]
     },
-    {
-        component: AuthenticatedLayout ,
-        beforeEnter: auth,
-        children:
-            [
-                {
-                    path: '/home',
-                    name: 'Questions',
-                    component: Questions,
-                },
-            ]
-    },
+
 
 ]
 
@@ -46,5 +49,19 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 })
+
+router.beforeEach ((to, from, next) => {
+    if(to.meta.requiresGuest){
+        if (JSON.parse(localStorage.getItem('loggedIn'))) {
+            next({
+                name: 'Questions'
+            })
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 
 export default router;

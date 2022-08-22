@@ -6,7 +6,7 @@
             <form @submit.prevent="login" class="mt-6">
                 <div>
                     <label for="phone" class="block text-sm text-gray-800 content-center">Номер телефона</label>
-                    <input type="text" id="phone" v-model="form.phone" v-maska="'+7 (###) ### ####'"
+                    <input type="text" id="phone" v-model="form.phone" v-maska="'+7 (###) ### ####'" required
                            class='w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50'>
                 </div>
                 <div class="mt-4">

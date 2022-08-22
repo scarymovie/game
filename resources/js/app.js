@@ -1,10 +1,10 @@
 import './bootstrap';
 
-import { createApp } from 'vue/dist/vue.esm-bundler';
+import { createApp, onMounted } from 'vue/dist/vue.esm-bundler';
 import router from "./router";
 import VueSweetalert2 from "vue-sweetalert2";
+import useAuth from "./composables/auth";
 
-// import App from './layouts/App.vue'
 import CreateQuestion from './components/Questions/Create.vue'
 
 import LaravelVuePagination from 'laravel-vue-pagination';
